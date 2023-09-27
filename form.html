@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qualification Form</title>
-    <link rel="stylesheet" href="styles.css"> 
     <style>
         body {
             background-color: #f8f8f8;
@@ -17,7 +16,6 @@
             justify-content: center;
             height: 100vh;
         }
-
         header {
             background-color: #0073e6;
             color: #fff;
@@ -26,17 +24,14 @@
             border-radius: 10px;
             margin: 20px;
         }
-
         header h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
-
         .form-section {
             text-align: center;
             margin: 20px;
         }
-
         .form-container {
             background-color: #fff;
             border-radius: 10px;
@@ -49,39 +44,34 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-
         .countdown {
             font-size: 50px; 
             font-weight: bold;
             margin-top: 20px;
             color: red; 
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-group label {
             font-size: 24px;
             display: block;
         }
-
-        .form-group input[type="text"],
-        .form-group input[type="tel"],
-        .form-group input[type="email"],
-        .form-group select {
+        .form-group input[id="firstName"],
+        .form-group input[id="lastName"],
+        .form-group input[id="phone"],
+        .form-group input[id="email"],
+        .form-group select[id="gender"] {
             width: 100%;
             padding: 10px;
             font-size: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         .form-group-split {
             display: flex;
             gap: 10px;
         }
-
         .claim-button {
             display: inline-block;
             width: 100%;
@@ -97,23 +87,19 @@
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .claim-button:hover {
             background-color: #005bbf;
         }
-
         .phone-section {
             text-align: center;
             margin-top: 20px;
         }
-
         .phone-number {
             font-size: 24px;
             font-weight: bold;
             text-decoration: none;
             color: #0073e6;
         }
-
         .tcpa-consent {
             font-size: 16px;
             text-align: left;
@@ -127,12 +113,11 @@
     <header>
         <h2>Congratulations! It looks like you may qualify.</h2>
     </header>
-
     <section class="form-section">
         <div class="form-container">
             <div class="headline">Act Quick!</div>
             <div class="countdown" id="countdown">02:00</div> 
-            <form id="qualificationForm"> 
+            <form id="qualificationForm" action="https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec" method="POST"> 
                 <div class="form-group form-group-split">
                     <div>
                         <label for="firstName">First Name:</label>
@@ -143,17 +128,14 @@
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="phone">Phone:</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
-
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-
                 <div class="form-group">
                     <label for="gender">Gender:</label>
                     <select id="gender" name="gender">
@@ -161,49 +143,53 @@
                         <option value="female">Female</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <button type="submit" class="claim-button">Claim Your Benefits</button>
                 </div>
             </form>
         </div>
     </section>
-
     <section class="phone-section">
         <a href="tel:+18772302533" class="phone-number">Call Now: (877) 230-2533</a>
         <div class="tcpa-consent">
-            <!-- Your consent text -->
+            By clicking the above button and submitting this form, I agree that I am 18+ years old and I provide my signature expressly consenting to receive emails, calls, postal mail, text messages and other forms of marketing communication regarding Health Insurance, or other offers from Synergy Marketplace LLC & the listed companies and agents to the number(s) I provided, including a mobile phone, even if I am on a state or federal Do Not Call and/or Do Not Email registry. The list of companies participating are subject to change. I will receive calls and/or texts from multiple companies in the list and/or Synergy Marketplace LLC. Such calls and text messages may use automated telephone dialing systems, artificial or pre-recorded voices. I understand my wireless carrier may impose charges for calls or texts. I understand that my consent to receive communications is not a condition of purchase and I may revoke my consent at any time by responding stop. California Residents, Terms, Privacy.
         </div>
     </section>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('qualificationForm');
-            
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(form);
-                const jsonData = {};
-
-                formData.forEach((value, key) => {
-                    jsonData[key] = value;
-                });
-
-                fetch('https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec', {
-                    method: 'POST',
-                    body: JSON.stringify(jsonData),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => response.text())
-                .then(data => {
-                    alert(data); // You can replace this with your own success message handling
-                    form.reset();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        const countdownElement = document.getElementById('countdown');
+        let countdown = 120;
+        function updateCountdown() {
+            const minutes = Math.floor(countdown / 60);
+            let seconds = countdown % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownElement.textContent = `${minutes}:${seconds}`;
+            countdown--;
+            if (countdown < 0) {
+                clearInterval(countdownInterval);
+            }
+        }
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        const qualificationForm = document.getElementById('qualificationForm');
+        qualificationForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(qualificationForm);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            fetch('https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec', {
+                method: 'POST',
+                body: JSON.stringify(formObject),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Form submitted successfully');
+            })
+            .catch(error => {
+                alert('Error submitting the form');
             });
         });
     </script>
