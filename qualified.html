@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualified</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            position: relative;
+        }
+
+        header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .claim-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .claim-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background-color: #0073e6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 28px;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .claim-button:hover {
+            background-color: #005bbf;
+        }
+
+        .phone-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .phone-number {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #0073e6;
+        }
+
+        .phone-number-header {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .text-section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .text-section p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://trackdrive.net/assets/trackdrive-optimizer.js"></script>
+    <script>
+        var options = {
+            offer_token: '754a9936801e8ff256925b58a748521e',
+            default_number: {
+                human_number: "(877) 230-2533",
+                plain_number: "+18772302533"
+            },
+            tokens: {
+                call_type: 'lander',
+                lp: 'rich_test_lander_token'
+            }
+        };
+
+        Trackdrive.Optimizer.replace_all(options, [
+            ['(877) 230-2533', 'human_number'],
+            ['I WILL BE REPLACED', 'human_number'],
+            ['+18772302533', 'plain_number']
+        ]);
+    </script>
+</head>
+<body>
+    <header>
+                <a href="tel:+18772302533" class="phone-number-header">Call Now: (877) 230-2533</a>
+        <h2>Congratulations! You've been prequalified for $0/month health insurance!</h2>
+        <p>Your spot is being held for the next 5 minutes. To get started, please speak to a Health Credit Representative.</p>
+    </header>
+
+    <section class="text-section">
+        <p>Click below to activate yours before your spot is given away.</p>
+    </section>
+
+    <section class="claim-section">
+        <a href="tel:+18772302533" class="claim-button" id="activate-button">Call Now: (877) 230-2533</a>
+    </section>
+
+    <script>
+        document.getElementById("activate-button").addEventListener("click", function() {
+            // window.location.href = 'thankyou.html';
+
+            window.location.href = 'thankyou.html';
+        });
+    </script>
+</body>
+</html>

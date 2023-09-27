@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0073e6;
+            color: #fff;
+            flex-direction: column;
+            position: relative; 
+        }
+
+        .spinner-circle {
+            border: 6px solid #fff;
+            border-top: 6px solid transparent;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: rotate 6s linear infinite, blink 1s linear infinite;
+        }
+
+        .spinner-message {
+            text-align: center;
+            margin-top: 20px;
+            position: relative; 
+            z-index: 1; 
+        }
+
+        .spinner-message p {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #fff; 
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="spinner">
+        <div class="spinner-circle"></div>
+        <div class="spinner-message">
+            <p>You are matched! ✅</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = 'qualified.html'; 
+        }, 5500);
+    </script>
+</body>
+</html>

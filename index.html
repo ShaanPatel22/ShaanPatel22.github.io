@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACA Health Insurance</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        .content-section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .check-qualify {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .check-qualify h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .check-qualify p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .check-qualify ul {
+            padding-left: 20px;
+        }
+
+        .check-qualify ul li {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .claim-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background-color: #0073e6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 32px;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .claim-button:hover {
+            background-color: #005bbf;
+        }
+
+        .phone-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .phone-number {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #0073e6;
+        }
+        .phone-number-header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://trackdrive.net/assets/trackdrive-optimizer.js"></script>
+    <script>
+        var options = {
+            offer_token: '754a9936801e8ff256925b58a748521e',
+            default_number: {
+                human_number: "(877) 893-8540",
+                plain_number: "+18778938540"
+            },
+            tokens: {
+                call_type: 'lander',
+                lp: 'rich_test_lander_token'
+            }
+        };
+
+        Trackdrive.Optimizer.replace_all(options, [
+            ['(877) 893-8540', 'human_number'],
+            ['I WILL BE REPLACED', 'human_number'],
+            ['+18778938540', 'plain_number']
+        ]);
+    </script>
+</head>
+<body>
+    <header>
+        <a href="tel:+18778938540" class="phone-number-header">Call Now: (877) 893-8540</a>
+        <h1>Claim $0/Month Health Insurance</h1>
+        <p>Starting this Week. Check Eligibility Below.</p>
+    </header>
+
+    <section class="content-section">
+        <div class="check-qualify">
+            <h2>How Do I Check If I Qualify?</h2>
+            <p>It's easy and completely free to check eligibility. Follow the steps below to get started.</p>
+            <ul>
+                <li>Step 1: Confirm you make less than $50,000.</li>
+                <li>Step 2: Confirm Medicaid status.</li>
+                <li>Step 3: Claim Health Care Benefits.</li>
+            </ul>
+        </div>
+
+        <!-- "Claim Now" button that takes you to medicareMedicaid.html -->
+        <a href="medicareMedicaid.html" class="claim-button">Claim Now</a>
+
+        <!-- "Click Here or Dial" button with the dynamic phone number from the script -->
+        <a href="tel:+18778938540" class="claim-button">Call Now: (877) 893-8540</a>
+        
+        </div>
+    </section>
+</body>
+</html>

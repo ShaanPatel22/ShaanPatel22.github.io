@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Question</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 20px;
+        }
+
+        header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .button-section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .blue-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background-color: #0073e6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 32px;
+            transition: background-color 0.2s ease-in-out;
+            margin: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .blue-button:hover {
+            background-color: #005bbf;
+        }
+        .phone-section {
+            text-align: center;
+            margin: 40px; 
+        }
+        .phone-number {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #0073e6; 
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://trackdrive.net/assets/trackdrive-optimizer.js"></script>
+    <script>
+        var options = {
+            offer_token: '754a9936801e8ff256925b58a748521e',
+            default_number: {
+                human_number: "(877) 230-2533",
+                plain_number: "+18772302533"
+            },
+            tokens: {
+                call_type: 'lander',
+                lp: 'rich_test_lander_token'
+            }
+        };
+
+        Trackdrive.Optimizer.replace_all(options, [
+            ['(877) 230-2533', 'human_number'],
+            ['I WILL BE REPLACED', 'human_number'],
+            ['+18772302533', 'plain_number']
+        ]);
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Do you make $50,000 a year or less?</h2>
+    </header>
+
+    <section class="button-section">
+        <a href="age.html" class="blue-button">Yes</a>
+        <br>
+        <a href="disqualified.html" class="blue-button">No</a>
+    </section>
+        <section class="phone-section">
+        <a href="tel:+18772302533" class="phone-number">Call Now: (877) 230-2533</a>
+    </section>
+</body>
+</html>

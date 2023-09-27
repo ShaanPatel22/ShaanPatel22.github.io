@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualification Form</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+        .headline {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 50px; 
+            font-weight: bold;
+            margin-top: 20px;
+            color: red; 
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 24px;
+            display: block;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group-split {
+            display: flex;
+            gap: 10px;
+        }
+
+        .claim-button {
+            display: inline-block;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #0073e6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 32px;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .claim-button:hover {
+            background-color: #005bbf;
+        }
+
+        .phone-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .phone-number {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #0073e6;
+        }
+
+        .tcpa-consent {
+            font-size: 16px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://trackdrive.net/assets/trackdrive-optimizer.js"></script>
+    <script>
+        var options = {
+            offer_token: '754a9936801e8ff256925b58a748521e',
+            default_number: {
+                human_number: "(877) 230-2533",
+                plain_number: "+18772302533"
+            },
+            tokens: {
+                call_type: 'lander',
+                lp: 'rich_test_lander_token'
+            }
+        };
+
+        Trackdrive.Optimizer.replace_all(options, [
+            ['(877) 230-2533', 'human_number'],
+            ['I WILL BE REPLACED', 'human_number'],
+            ['+18772302533', 'plain_number']
+        ]);
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Congratulations! It looks like you may qualify.</h2>
+    </header>
+
+    <section class="form-section">
+        <div class="form-container">
+            <div class="headline">Act Quick!</div>
+            <div class="countdown" id="countdown">02:00</div> 
+            <form action="https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec" method="POST"> 
+                <div class="form-group form-group-split">
+                    <div>
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <a href="spinner.html" class="claim-button">Claim Your Benefits</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="phone-section">
+        <a href="tel:+18772302533" class="phone-number">Call Now: (877) 230-2533</a>
+        <div class="tcpa-consent">
+                 By clicking the above button and submitting this form, I agree that I am 18+ years old and I provide my signature expressly consenting to receive emails, calls, postal mail, text messages and other forms of marketing communication regarding Health Insurance, or other offers from Synergy Marketplace LLC & the listed companies and agents to the number(s) I provided, including a mobile phone, even if I am on a state or federal Do Not Call and/or Do Not Email registry. The list of companies participating are subject to change. I will receive calls and/or texts from multiple companies in the list and/or Synergy Marketplace LLC. Such calls and text messages may use automated telephone dialing systems, artificial or pre-recorded voices. I understand my wireless carrier may impose charges for calls or texts. I understand that my consent to receive communications is not a condition of purchase and I may revoke my consent at any time by responding stop. California Residents, Terms, Privacy.
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                fetch('https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec', {
+                    method: 'POST',
+                    body: JSON.stringify(Object.fromEntries(formData)),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data); 
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
