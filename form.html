@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,27 +122,6 @@
             margin-top: 20px;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://trackdrive.net/assets/trackdrive-optimizer.js"></script>
-    <script>
-        var options = {
-            offer_token: '754a9936801e8ff256925b58a748521e',
-            default_number: {
-                human_number: "(877) 230-2533",
-                plain_number: "+18772302533"
-            },
-            tokens: {
-                call_type: 'lander',
-                lp: 'rich_test_lander_token'
-            }
-        };
-
-        Trackdrive.Optimizer.replace_all(options, [
-            ['(877) 230-2533', 'human_number'],
-            ['I WILL BE REPLACED', 'human_number'],
-            ['+18772302533', 'plain_number']
-        ]);
-    </script>
 </head>
 <body>
     <header>
@@ -155,7 +132,7 @@
         <div class="form-container">
             <div class="headline">Act Quick!</div>
             <div class="countdown" id="countdown">02:00</div> 
-            <form action="https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec" method="POST"> 
+            <form id="qualificationForm"> 
                 <div class="form-group form-group-split">
                     <div>
                         <label for="firstName">First Name:</label>
@@ -186,7 +163,7 @@
                 </div>
 
                 <div class="form-group">
-                    <a href="spinner.html" class="claim-button">Claim Your Benefits</a>
+                    <button type="submit" class="claim-button">Claim Your Benefits</button>
                 </div>
             </form>
         </div>
@@ -195,28 +172,33 @@
     <section class="phone-section">
         <a href="tel:+18772302533" class="phone-number">Call Now: (877) 230-2533</a>
         <div class="tcpa-consent">
-                 By clicking the above button and submitting this form, I agree that I am 18+ years old and I provide my signature expressly consenting to receive emails, calls, postal mail, text messages and other forms of marketing communication regarding Health Insurance, or other offers from Synergy Marketplace LLC & the listed companies and agents to the number(s) I provided, including a mobile phone, even if I am on a state or federal Do Not Call and/or Do Not Email registry. The list of companies participating are subject to change. I will receive calls and/or texts from multiple companies in the list and/or Synergy Marketplace LLC. Such calls and text messages may use automated telephone dialing systems, artificial or pre-recorded voices. I understand my wireless carrier may impose charges for calls or texts. I understand that my consent to receive communications is not a condition of purchase and I may revoke my consent at any time by responding stop. California Residents, Terms, Privacy.
+            <!-- Your consent text -->
         </div>
     </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const form = document.querySelector('form');
+            const form = document.getElementById('qualificationForm');
             
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const formData = new FormData(form);
-                
+                const jsonData = {};
+
+                formData.forEach((value, key) => {
+                    jsonData[key] = value;
+                });
+
                 fetch('https://script.google.com/macros/s/AKfycbxEjz6tBJnBsAXnCITpR5Za7x8TZC4lyGfSP7iCunFcJj73DgREM0Db1IM_irK_ewVi/exec', {
                     method: 'POST',
-                    body: JSON.stringify(Object.fromEntries(formData)),
+                    body: JSON.stringify(jsonData),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
                 .then(response => response.text())
                 .then(data => {
-                    alert(data); 
+                    alert(data); // You can replace this with your own success message handling
                     form.reset();
                 })
                 .catch(error => {
